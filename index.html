@@ -1,503 +1,341 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Davis Mobile RV Repair — Roger Davis</title>
-  <meta name="description" content="Davis Mobile RV Repair — Mobile RV service. Call +1 (435) 463-1098. Owner: Roger Davis." />
-  <style>
-    :root{
-      --brand:#0b5d5d;       /* deep teal */
-      --accent:#0ea5a5;      /* lighter teal */
-      --muted:#6b7280;       /* gray for secondary text */
-      --bg:#f7faf9;          /* off-white */
-      --card:#ffffff;
-      --danger:#d9534f;
-      --max-width:1100px;
-      --radius:12px;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-    }
-    html,body{height:100%}
-    body{
-      margin:0;
-      background:linear-gradient(180deg, var(--bg), #eef8f8);
-      color:#0f1724;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      line-height:1.45;
-      padding:24px;
-      display:flex;
-      justify-content:center;
-    }
-    .container{
-      width:100%;
-      max-width:var(--max-width);
-    }
-    header{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:20px;
-      margin-bottom:18px;
-    }
-    .brand{
-      display:flex;
-      gap:14px;
-      align-items:center;
-    }
-    .brand h1{
-      margin:0;
-      font-size:1.25rem;
-      letter-spacing:0.2px;
-    }
-    .phone{
-      display:flex;
-      gap:10px;
-      align-items:center;
-    }
-    .phone a{
-      background:var(--brand);
-      color:white;
-      padding:10px 14px;
-      border-radius:10px;
-      text-decoration:none;
-      font-weight:600;
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      box-shadow:0 6px 18px rgba(11,93,93,0.12);
-    }
-    .phone small{
-      display:block;
-      color:var(--muted);
-      font-size:0.82rem;
-      text-align:right;
-    }
-    main{
-      display:grid;
-      grid-template-columns:1fr 380px;
-      gap:22px;
-      align-items:start;
-    }
-    @media (max-width:1000px){
-      main{grid-template-columns:1fr}
-    }
-    .card{
-      background:var(--card);
-      border-radius:var(--radius);
-      padding:18px;
-      box-shadow:0 6px 18px rgba(15,23,36,0.06);
-      border:1px solid rgba(11,93,93,0.03);
-    }
-    .lead{
-      font-size:1rem;
-      color:var(--muted);
-      margin-top:6px;
-    }
-    .actions{
-      display:flex;
-      gap:10px;
-      margin-top:14px;
-      flex-wrap:wrap;
-    }
-    .btn{
-      display:inline-block;
-      padding:10px 14px;
-      border-radius:10px;
-      text-decoration:none;
-      font-weight:600;
-      background:var(--accent);
-      color:#063235;
-      border:1px solid rgba(6,50,50,0.06);
-    }
-    .btn.ghost{
-      background:transparent;
-      color:var(--brand);
-      border:1px solid rgba(11,93,93,0.12);
-    }
-    section h2{
-      margin:0 0 12px 0;
-      font-size:1.05rem;
-    }
-    .services-list{
-      display:flex;
-      flex-direction:column;
-      gap:6px;
-      margin-top:8px;
-    }
-    .service-item{
-      padding:10px;
-      border-radius:8px;
-      border:1px dashed rgba(11,93,93,0.06);
-      background:linear-gradient(180deg, rgba(14,165,165,0.02), transparent);
-      font-weight:600;
-      font-size:0.95rem;
-      color:var(--brand);
-    }
-    /* Reviews */
-    .reviews-grid{
-      display:flex;
-      flex-direction:column;
-      gap:8px;
-    }
-    .review{
-      display:flex;
-      gap:12px;
-      align-items:flex-start;
-      padding:10px;
-      border-radius:8px;
-      background:linear-gradient(180deg, rgba(0,0,0,0.01), transparent);
-      border:1px solid rgba(11,93,93,0.04);
-    }
-    .r-meta{
-      min-width:84px;
-      font-size:0.88rem;
-      color:var(--muted);
-    }
-    .r-body{flex:1}
-    .stars{
-      display:flex;
-      gap:4px;
-      align-items:center;
-    }
-    .star{
-      width:14px;
-      height:14px;
-      display:inline-block;
-      clip-path: polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);
-      background:linear-gradient(180deg,#ffc107,#ffb300);
-      box-shadow:0 1px 1px rgba(0,0,0,0.08);
-    }
-    .map-wrap iframe{
-      width:100%;
-      border-radius:8px;
-      border:1px solid rgba(11,93,93,0.06);
-      min-height:260px;
-    }
-    /* contact form */
-    form .row{
-      display:flex;
-      gap:8px;
-      margin-bottom:8px;
-    }
-    form input, form textarea, form select{
-      width:100%;
-      padding:10px 12px;
-      border-radius:8px;
-      border:1px solid rgba(15,23,36,0.08);
-      font-size:0.95rem;
-      box-sizing:border-box;
-      background:transparent;
-    }
-    form textarea{min-height:110px; resize:vertical}
-    footer{
-      margin-top:18px;
-      color:var(--muted);
-      font-size:0.9rem;
-      display:flex;
-      justify-content:space-between;
-      gap:12px;
-      flex-wrap:wrap;
-      align-items:center;
-    }
-    .smalllink{color:var(--brand); text-decoration:none; font-weight:600}
-    /* compact review body */
-    .empty-body{ color:var(--muted); font-style:italic; font-size:0.9rem }
-    /* subtle divider */
-    .divider{height:1px;background:linear-gradient(90deg,transparent,rgba(11,93,93,0.04),transparent);margin:12px 0;border-radius:1px}
-    /* accessibility focus */
-    a:focus, button:focus, input:focus, textarea:focus{outline:3px solid rgba(14,165,165,0.14); outline-offset:2px}
-    .utility{
-      display:flex;
-      gap:8px;
-      align-items:center;
-    }
-    .badge{
-      background:rgba(14,165,165,0.12);
-      color:var(--brand);
-      padding:6px 10px;
-      border-radius:999px;
-      font-weight:700;
-      font-size:0.85rem;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Davis Mobile RV Repair</title>
+    <style>
+        /* Color Scheme */
+        :root {
+            --primary-color: #1a3c5e; /* Dark Blue */
+            --secondary-color: #f4f4f4; /* Light Gray */
+            --accent-color: #e67e22; /* Orange for buttons and highlights */
+            --text-color: #333333; /* Dark text for readability */
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 1rem;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+
+        header a:hover {
+            text-decoration: underline;
+        }
+
+        nav {
+            background-color: var(--white);
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        section {
+            margin-bottom: 3rem;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .contact-info, .hours, .map, .reviews, .contact-form {
+            background-color: var(--white);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-info p, .hours p {
+            margin-bottom: 0.5rem;
+        }
+
+        .hours p {
+            display: flex;
+            justify-content: space-between;
+            max-width: 300px;
+        }
+
+        .map iframe {
+            width: 100%;
+            max-width: 600px;
+            height: 450px;
+            border: none;
+            border-radius: 8px;
+        }
+
+        .reviews .review {
+            margin-bottom: 1rem;
+            padding: 1rem;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .reviews .review:last-child {
+            border-bottom: none;
+        }
+
+        .reviews .stars {
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .reviews .show-more {
+            background-color: var(--accent-color);
+            color: var(--white);
+            border: none;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border-radius: 4px;
+            margin-top: 1rem;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .reviews .show-more:hover {
+            background-color: #d35400;
+        }
+
+        .contact-form form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-form label {
+            font-weight: bold;
+        }
+
+        .contact-form input, .contact-form textarea {
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .contact-form button {
+            background-color: var(--accent-color);
+            color: var(--white);
+            border: none;
+            padding: 0.75rem;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .contact-form button:hover {
+            background-color: #d35400;
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 1rem;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+
+            .map iframe {
+                height: 300px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
     <header>
-      <div class="brand">
-        <div style="width:56px;height:56px;border-radius:10px;background:linear-gradient(180deg,var(--brand),var(--accent));display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-size:18px">
-          DM
-        </div>
-        <div>
-          <h1>Davis Mobile RV Repair</h1>
-          <div class="lead">Owner: Roger Davis — Mobile RV service & repairs</div>
-        </div>
-      </div>
-
-      <div class="phone">
-        <div style="text-align:right">
-          <a class="phone-link" href="tel:+14354631098" aria-label="Call Davis Mobile RV Repair">
-            📞 +1 (435) 463-1098
-          </a>
-          <div class="lead" style="margin-top:6px">Open daily: 9 AM–9 PM</div>
-        </div>
-      </div>
+        <h1>Davis Mobile RV Repair</h1>
+        <a href="tel:+14354631098">Call Now: +1 (435) 463-1098</a>
     </header>
 
-    <main>
-      <section>
-        <div class="card">
-          <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
-            <div>
-              <h2>Mobile RV Repair — We come to you</h2>
-              <div class="lead">Experienced, reliable mobile RV repair for appliances, plumbing, electrical, chassis & more.</div>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#hours">Hours</a></li>
+            <li><a href="#map">Location</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section id="home">
+            <h2>Welcome to Davis Mobile RV Repair</h2>
+            <p>Owned and operated by Roger, Davis Mobile RV Repair provides top-quality, mobile RV repair services in Southern Utah. With years of experience and a commitment to customer satisfaction, we bring reliable repairs directly to you. Call us today for fast, professional service!</p>
+        </section>
+
+        <section id="hours" class="hours">
+            <h2>Business Hours</h2>
+            <p>Monday: 9 AM–9 PM</p>
+            <p>Tuesday: 9 AM–9 PM</p>
+            <p>Wednesday: 9 AM–9 PM</p>
+            <p>Thursday: 9 AM–9 PM</p>
+            <p>Friday: 9 AM–9 PM</p>
+            <p>Saturday: 9 AM–9 PM</p>
+            <p>Sunday: 9 AM–9 PM</p>
+        </section>
+
+        <section id="map" class="map">
+            <h2>Our Location</h2>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3183.5067754925894!2d-113.55117492458022!3d37.06923525248866!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4fd93b9d2d43111%3A0x3c490bd3e424414!2sDavis%20Mobile%20Rv%20Repair!5e0!3m2!1sen!2sus!4v1761409680148!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </section>
+
+        <section id="reviews" class="reviews">
+            <h2>Customer Reviews</h2>
+            <div id="review-list">
+                <!-- Reviews will be populated by JavaScript -->
             </div>
-            <div class="utility">
-              <div class="badge">Mobile Service</div>
-            </div>
-          </div>
+            <button id="show-more" class="show-more">Show More</button>
+        </section>
 
-          <div class="divider"></div>
+        <section id="contact" class="contact-form">
+            <h2>Contact Us</h2>
+            <form id="contact-form" action="mailto:rogerdavis1020@yahoo.com" method="post" enctype="text/plain">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+                
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
 
-          <div class="actions">
-            <a class="btn" href="tel:+14354631098">Call Now</a>
-            <a class="btn ghost" href="mailto:rogerdavis1020@yahoo.com">Email Roger</a>
-            <a class="btn ghost" target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/place/Davis+Mobile+Rv+Repair/@37.0692353,-113.5511749,17z/data=!3m1!4b1!4m6!3m5!1s0x4fd93b9d2d43111:0x3c490bd3e424414!8m2!3d37.069231!4d-113.5486!16s%2Fg%2F11s3v4tq1n?entry=ttu&g_ep=EgoyMDI1MTAyMi4wIKXMDSoASAFQAw%3D%3D">Open Google</a>
-            <a class="btn ghost" target="_blank" rel="noopener noreferrer" href="https://m.facebook.com/davismobilervrepair">Facebook</a>
-          </div>
-
-          <div style="display:flex;gap:18px;margin-top:14px;flex-wrap:wrap">
-            <div style="flex:1;min-width:200px">
-              <h3 style="margin:0 0 8px 0">Services</h3>
-              <div class="services-list" aria-hidden="false">
-                <div class="service-item">Appliance repair (fridge, furnace, water heater)</div>
-                <div class="service-item">Electrical diagnostics & repairs</div>
-                <div class="service-item">Plumbing, pumps, water systems</div>
-                <div class="service-item">Chassis & propulsion troubleshooting</div>
-                <div class="service-item">Preventive maintenance & emergency service</div>
-              </div>
-            </div>
-
-            <div style="width:320px">
-              <h3 style="margin:0 0 8px 0">Hours</h3>
-              <div style="font-weight:700">Daily: <span style="font-weight:600;color:var(--muted)">9 AM — 9 PM</span></div>
-              <div style="margin-top:12px;font-size:0.95rem;color:var(--muted)">
-                Quick actions:
-                <div style="margin-top:8px;display:flex;gap:8px">
-                  <a class="btn" href="tel:+14354631098">Call +1 (435) 463-1098</a>
-                  <a class="btn ghost" href="mailto:rogerdavis1020@yahoo.com">rogerdavis1020@yahoo.com</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Reviews card -->
-        <div class="card" style="margin-top:16px" id="reviewsCard" aria-live="polite">
-          <h2>Customer reviews</h2>
-          <div class="lead">All reviews are five stars.</div>
-
-          <div class="divider"></div>
-
-          <div id="reviewsList" class="reviews-grid" aria-relevant="additions removals"></div>
-
-          <div style="margin-top:12px;display:flex;gap:8px;align-items:center">
-            <button id="showMoreBtn" class="btn ghost" style="display:none">Show more</button>
-            <a class="smalllink" id="allGoogleLink" target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/place/Davis+Mobile+Rv+Repair/@37.0692353,-113.5511749,17z/data=!3m1!4b1!4m6!3m5!1s0x4fd93b9d2d43111:0x3c490bd3e424414!8m2!3d37.069231!4d-113.5486!16s%2Fg%2F11s3v4tq1n?entry=ttu&g_ep=EgoyMDI1MTAyMi4wIKXMDSoASAFQAw%3D%3D">See all reviews on Google</a>
-          </div>
-        </div>
-
-        <!-- Contact form -->
-        <div class="card" style="margin-top:16px">
-          <h2>Contact & Request Service</h2>
-          <div class="lead">Use this form to request a call back or describe your RV issue.</div>
-
-          <!--
-            NOTE: To make form submissions work without a server, configure Formspree (https://formspree.io/) or another forms provider
-            and replace the action URL below with your Formspree endpoint (for example: https://formspree.io/f/mxyzabc).
-            Without a server or Formspree, browsers may open the user's email client when the form is submitted via "mailto:".
-          -->
-          <form id="contactForm" class="contact-form" method="POST" action="https://formspree.io/f/YOUR_FORMSPREE_ENDPOINT" accept-charset="utf-8" >
-            <div class="row">
-              <input name="name" type="text" placeholder="Full name" required aria-label="Full name">
-              <input name="phone" type="tel" placeholder="Phone (best for calls)" required aria-label="Phone number">
-            </div>
-            <div class="row">
-              <input name="email" type="email" placeholder="Email (optional)" aria-label="Email address">
-              <select name="service" aria-label="Requested service">
-                <option value="">Select service (optional)</option>
-                <option>Appliance repair</option>
-                <option>Electrical</option>
-                <option>Plumbing</option>
-                <option>Diagnostics</option>
-                <option>Emergency service</option>
-              </select>
-            </div>
-            <div style="margin-bottom:8px">
-              <textarea name="message" placeholder="Describe the issue, location and best time to call" aria-label="Message"></textarea>
-            </div>
-
-            <div style="display:flex;gap:10px;align-items:center">
-              <button type="submit" class="btn">Send request</button>
-              <a class="btn ghost" href="tel:+14354631098">Call now</a>
-              <div style="margin-left:auto;color:var(--muted);font-size:0.9rem">Or email <a href="mailto:rogerdavis1020@yahoo.com" class="smalllink">rogerdavis1020@yahoo.com</a></div>
-            </div>
-            <div style="margin-top:10px;font-size:0.88rem;color:var(--muted)">
-              Note: If you use the default action, replace <code>YOUR_FORMSPREE_ENDPOINT</code> with your form endpoint.
-            </div>
-          </form>
-        </div>
-      </section>
-
-      <!-- Right column -->
-      <aside>
-        <div class="card">
-          <h2>Location</h2>
-          <div class="lead">Davis Mobile RV Repair — maps & directions</div>
-          <div class="map-wrap" style="margin-top:12px">
-            <!-- Provided Google Maps embed -->
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3183.5067754925894!2d-113.55117492458022!3d37.06923525248866!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4fd93b9d2d43111%3A0x3c490bd3e424414!2sDavis%20Mobile%20Rv%20Repair!5e0!3m2!1sen!2sus!4v1761409680148!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-          </div>
-
-          <div style="margin-top:12px;display:flex;flex-direction:column;gap:8px">
-            <a class="smalllink" target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/place/Davis+Mobile+Rv+Repair/@37.0692353,-113.5511749,17z/data=!3m1!4b1!4m6!3m5!1s0x4fd93b9d2d43111:0x3c490bd3e424414!8m2!3d37.069231!4d-113.5486!16s%2Fg%2F11s3v4tq1n?entry=ttu&g_ep=EgoyMDI1MTAyMi4wIKXMDSoASAFQAw%3D%3D">Open in Google Maps</a>
-            <a class="smalllink" target="_blank" rel="noopener noreferrer" href="https://m.facebook.com/davismobilervrepair">Facebook page</a>
-            <div style="color:var(--muted);font-size:0.92rem">Owner: Roger Davis</div>
-            <div style="color:var(--muted);font-size:0.92rem">Phone: <a href="tel:+14354631098" class="smalllink">+1 (435) 463-1098</a></div>
-          </div>
-        </div>
-
-        <!-- Quick contact card -->
-        <div class="card" style="margin-top:16px">
-          <h3 style="margin:0 0 8px 0">Quick contact</h3>
-          <div style="display:flex;flex-direction:column;gap:8px">
-            <a class="btn" href="tel:+14354631098">Immediate call</a>
-            <a class="btn ghost" href="mailto:rogerdavis1020@yahoo.com">Email Roger</a>
-            <a class="btn ghost" target="_blank" rel="noopener noreferrer" href="https://m.facebook.com/davismobilervrepair">Facebook</a>
-          </div>
-        </div>
-      </aside>
-    </main>
+        <section class="contact-info">
+            <h2>Contact Information</h2>
+            <p><a href="tel:+14354631098">Phone: +1 (435) 463-1098</a></p>
+            <p><a href="mailto:rogerdavis1020@yahoo.com">Email: rogerdavis1020@yahoo.com</a></p>
+            <p><a href="https://www.google.com/maps/place/Davis+Mobile+Rv+Repair/@37.0692353,-113.5511749,17z/data=!3m1!4b1!4m6!3m5!1s0x4fd93b9d2d43111:0x3c490bd3e424414!8m2!3d37.069231!4d-113.5486!16s%2Fg%2F11s3v4tq1n?entry=ttu&g_ep=EgoyMDI1MTAyMi4wIKXMDSoASAFQAw%3D%3D" target="_blank">View on Google Maps</a></p>
+            <p><a href="https://m.facebook.com/davismobilervrepair" target="_blank">Follow us on Facebook</a></p>
+        </section>
+    </div>
 
     <footer>
-      <div>© <strong>Davis Mobile RV Repair</strong> — Owner: Roger Davis</div>
-      <div>Designed for GitHub Pages. <a class="smalllink" href="mailto:rogerdavis1020@yahoo.com">rogerdavis1020@yahoo.com</a></div>
+        <p>&copy; 2025 Davis Mobile RV Repair. All rights reserved.</p>
+        <p><a href="https://www.google.com/maps/place/Davis+Mobile+Rv+Repair/@37.0692353,-113.5511749,17z/data=!3m1!4b1!4m6!3m5!1s0x4fd93b9d2d43111:0x3c490bd3e424414!8m2!3d37.069231!4d-113.5486!16s%2Fg%2F11s3v4tq1n?entry=ttu&g_ep=EgoyMDI1MTAyMi4wIKXMDSoASAFQAw%3D%3D" target="_blank">Google Maps</a> | <a href="https://m.facebook.com/davismobilervrepair" target="_blank">Facebook</a></p>
     </footer>
-  </div>
 
-  <script>
-    /**********************************************************************
-     * Reviews data
-     *
-     * You said: "Reviews will be added later just make array of 5 blank examples."
-     * The array below preserves the compact format you requested and does NOT
-     * alter the main content of any review entries.
-     *
-     * Format (compressed): { name: "Reviewer 1", rating: 5, body: "" },
-     **********************************************************************/
-    const reviews = [
-      { name: "Reviewer 1", rating: 5, body: "" },
-      { name: "Reviewer 2", rating: 5, body: "" },
-      { name: "Reviewer 3", rating: 5, body: "" },
-      { name: "Reviewer 4", rating: 5, body: "" },
-      { name: "Reviewer 5", rating: 5, body: "" }
-    ];
+    <script>
+        const reviews = [
+            { name: "Reviewer 1", rating: 5, body: "" },
+            { name: "Reviewer 2", rating: 5, body: "" },
+            { name: "Reviewer 3", rating: 5, body: "" },
+            { name: "Reviewer 4", rating: 5, body: "" },
+            { name: "Reviewer 5", rating: 5, body: "" }
+        ];
 
-    // Display logic: show up to 6 initially; if fewer reviews exist, show all.
-    const BATCH = 6;
-    let shown = 0;
-    const reviewsList = document.getElementById('reviewsList');
-    const showMoreBtn = document.getElementById('showMoreBtn');
+        const reviewsPerPage = 6;
+        let visibleReviews = reviewsPerPage;
 
-    function renderReview(r) {
-      // r is expected to be like { name: "Reviewer X", rating:5, body: "" }
-      const el = document.createElement('div');
-      el.className = 'review';
-      el.innerHTML = `
-        <div class="r-meta">
-          <div style="font-weight:700">${escapeHtml(r.name)}</div>
-          <div class="stars" aria-hidden="true">${renderStars(r.rating)}</div>
-        </div>
-        <div class="r-body">
-          ${r.body && r.body.trim() ? `<div>${escapeHtml(r.body)}</div>` : `<div class="empty-body">No additional description</div>`}
-        </div>
-      `;
-      return el;
-    }
+        function renderReviews() {
+            const reviewList = document.getElementById('review-list');
+            reviewList.innerHTML = '';
+            const visible = reviews.slice(0, visibleReviews);
+            visible.forEach(review => {
+                const reviewDiv = document.createElement('div');
+                reviewDiv.className = 'review';
+                reviewDiv.innerHTML = `
+                    <div class="stars">${'★'.repeat(review.rating)}</div>
+                    <p><strong>${review.name}</strong></p>
+                    <p>${review.body}</p>
+                `;
+                reviewList.appendChild(reviewDiv);
+            });
 
-    function renderStars(n){
-      // n should be 5 per your requirement; but keep generic
-      let out = '';
-      for(let i=0;i<5;i++){
-        out += '<span class="star" aria-hidden="true"></span>';
-      }
-      return out;
-    }
+            const showMoreButton = document.getElementById('show-more');
+            if (visibleReviews >= reviews.length) {
+                showMoreButton.style.display = 'none';
+            } else {
+                showMoreButton.style.display = 'block';
+                showMoreButton.textContent = `Show ${Math.min(reviewsPerPage, reviews.length - visibleReviews)} More`;
+            }
+        }
 
-    function escapeHtml(str){
-      return String(str).replace(/[&<>"']/g, function(m){
-        return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m];
-      });
-    }
+        document.getElementById('show-more').addEventListener('click', () => {
+            visibleReviews += reviewsPerPage;
+            renderReviews();
+        });
 
-    function renderBatch(){
-      const remaining = reviews.length - shown;
-      const toShow = Math.min(BATCH, remaining);
-      for(let i=0;i<toShow;i++){
-        const r = reviews[shown + i];
-        reviewsList.appendChild(renderReview(r));
-      }
-      shown += toShow;
-      updateShowMore();
-    }
-
-    function updateShowMore(){
-      if(shown < reviews.length){
-        showMoreBtn.style.display = 'inline-block';
-        const remaining = reviews.length - shown;
-        // Follow the user's example: if there are 13 reviews, six show initially then button would say show s more (total 7).
-        // We'll show label like: "Show more (X)" where X is remaining.
-        showMoreBtn.textContent = `Show more (${remaining})`;
-      } else {
-        showMoreBtn.style.display = 'none';
-      }
-    }
-
-    showMoreBtn.addEventListener('click', function(){
-      renderBatch();
-      // smooth scroll to newly added block
-      const last = reviewsList.lastElementChild;
-      if(last){ last.scrollIntoView({behavior:'smooth', block:'nearest'}); }
-    });
-
-    // initialize
-    (function init(){
-      // If reviews length is 0, show a placeholder
-      if(reviews.length === 0){
-        const p = document.createElement('div');
-        p.className = 'review';
-        p.innerHTML = `<div style="color:var(--muted);font-style:italic">No reviews yet</div>`;
-        reviewsList.appendChild(p);
-        return;
-      }
-      // render initial batch (up to BATCH; if fewer exist, all show)
-      renderBatch();
-    })();
-
-    // Simple client-side form handling: show a friendly message on submit.
-    document.getElementById('contactForm').addEventListener('submit', function(e){
-      // If you're using Formspree or a real backend, allow network submission to proceed.
-      // If the action still uses placeholder YOUR_FORMSPREE_ENDPOINT, intercept and show instructions.
-      if(this.action.includes('YOUR_FORMSPREE_ENDPOINT')){
-        e.preventDefault();
-        alert('This form is configured with a placeholder endpoint. Replace YOUR_FORMSPREE_ENDPOINT with your Formspree (or other) endpoint in the form action to enable submissions. Alternatively, clicking "Call now" will place a call.');
-      } else {
-        // let the form submit naturally (for Formspree or backend handling)
-        // Optionally, you could show a temporary message while the request proceeds.
-      }
-    }, {capture:false});
-
-  </script>
+        // Initial render
+        renderReviews();
+    </script>
 </body>
 </html>
