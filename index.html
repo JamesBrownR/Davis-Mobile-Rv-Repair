@@ -4,21 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Davis Mobile RV Repair</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* Color Scheme */
         :root {
             --primary-color: #1a3c5e; /* Dark Blue */
             --secondary-color: #f4f4f4; /* Light Gray */
---accent-color: #2c7a7b; /* Muted Teal for buttons and highlights */
-            --text-color: #333333; /* Dark text for readability */
+            --accent-color: #2c7a7b; /* Muted Teal */
+            --text-color: #333333;
             --white: #ffffff;
+            --highlight-color: #d35400; /* Orange for hover effects */
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', Arial, sans-serif;
         }
 
         body {
@@ -27,8 +28,38 @@
             line-height: 1.6;
         }
 
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1504470690773-c67ee2f3aa2f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            color: var(--white);
+            text-align: center;
+            padding: 4rem 1rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero a {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .hero a:hover {
+            background-color: var(--highlight-color);
+            transform: scale(1.05);
+        }
+
+        /* Header */
         header {
-            background-color: var(--primary-color);
+            background: linear-gradient(to right, var(--primary-color), #2a4a7e);
             color: var(--white);
             padding: 1rem;
             text-align: center;
@@ -49,6 +80,7 @@
             text-decoration: underline;
         }
 
+        /* Navigation */
         nav {
             background-color: var(--white);
             padding: 1rem;
@@ -66,12 +98,14 @@
             color: var(--primary-color);
             text-decoration: none;
             font-weight: bold;
+            transition: color 0.3s ease;
         }
 
         nav a:hover {
             color: var(--accent-color);
         }
 
+        /* Container */
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -80,37 +114,76 @@
 
         section {
             margin-bottom: 3rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         h2 {
             color: var(--primary-color);
             margin-bottom: 1rem;
-            font-size: 1.8rem;
+            font-size: 2rem;
         }
 
-        .contact-info, .hours, .map, .reviews, .contact-form {
+        /* Hours Section */
+        .hours {
             background-color: var(--white);
             padding: 1.5rem;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
-        .contact-info p, .hours p {
-            margin-bottom: 0.5rem;
+        .hours .hours-list {
+            display: grid;
+            gap: 0.5rem;
         }
 
-        .hours p {
+        .hours .hours-item {
             display: flex;
             justify-content: space-between;
-            max-width: 300px;
+            align-items: center;
+            padding: 0.75rem;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            transition: background-color 0.3s ease;
         }
 
+        .hours .hours-item:nth-child(odd) {
+            background-color: #e8f0f2;
+        }
+
+        .hours .hours-item:hover {
+            background-color: var(--accent-color);
+            color: var(--white);
+        }
+
+        .hours .hours-item::before {
+            content: '🕒';
+            margin-right: 0.5rem;
+        }
+
+        /* Map Section */
         .map iframe {
             width: 100%;
             max-width: 600px;
             height: 450px;
             border: none;
             border-radius: 8px;
+        }
+
+        /* Reviews Section */
+        .reviews, .contact-form {
+            background-color: var(--white);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         .reviews .review {
@@ -127,48 +200,80 @@
             color: var(--accent-color);
             margin-bottom: 0.5rem;
         }
-.contact-info a {
-    color: var(--accent-color);
-    text-decoration: none;
-    position: relative;
-    transition: color 0.3s ease;
-}
 
-.contact-info a:hover {
-    color: var(--primary-color);
-}
-
-.contact-info a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: -2px;
-    left: 0;
-    background-color: var(--primary-color);
-    transition: width 0.3s ease;
-}
-
-.contact-info a:hover::after {
-    width: 100%;
-}
         .reviews .show-more {
             background-color: var(--accent-color);
             color: var(--white);
             border: none;
-            padding: 0.5rem 1rem;
+            padding: 0.75rem 1.5rem;
             cursor: pointer;
-            border-radius: 4px;
+            border-radius: 5px;
             margin-top: 1rem;
             display: block;
             margin-left: auto;
             margin-right: auto;
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
 
         .reviews .show-more:hover {
-            background-color: #d35400;
+            background-color: var(--highlight-color);
+            transform: scale(1.05);
         }
 
+        /* Contact Information Section */
+        .contact-info {
+            background-color: var(--white);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-info .contact-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .contact-info a {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: var(--accent-color);
+            color: var(--white);
+            padding: 0.75rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .contact-info a:hover {
+            background-color: var(--highlight-color);
+            transform: scale(1.05);
+        }
+
+        .contact-info a::before {
+            content: '';
+            font-size: 1.2rem;
+        }
+
+        .contact-info a.phone::before {
+            content: '📞';
+        }
+
+        .contact-info a.email::before {
+            content: '✉️';
+        }
+
+        .contact-info a.map::before {
+            content: '🗺️';
+        }
+
+        .contact-info a.facebook::before {
+            content: '📱';
+        }
+
+        /* Contact Form */
         .contact-form form {
             display: flex;
             flex-direction: column;
@@ -180,10 +285,16 @@
         }
 
         .contact-form input, .contact-form textarea {
-            padding: 0.5rem;
+            padding: 0.75rem;
             border: 1px solid #ddd;
-            border-radius: 4px;
+            border-radius: 5px;
             font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .contact-form input:focus, .contact-form textarea:focus {
+            border-color: var(--accent-color);
+            outline: none;
         }
 
         .contact-form button {
@@ -192,19 +303,22 @@
             border: none;
             padding: 0.75rem;
             cursor: pointer;
-            border-radius: 4px;
+            border-radius: 5px;
             font-size: 1rem;
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
 
         .contact-form button:hover {
-            background-color: #d35400;
+            background-color: var(--highlight-color);
+            transform: scale(1.05);
         }
 
+        /* Footer */
         footer {
             background-color: var(--primary-color);
             color: var(--white);
             text-align: center;
-            padding: 1rem;
+            padding: 1.5rem;
             position: relative;
             bottom: 0;
             width: 100%;
@@ -213,16 +327,17 @@
         footer a {
             color: var(--accent-color);
             text-decoration: none;
+            transition: color 0.3s ease;
         }
 
         footer a:hover {
-            text-decoration: underline;
+            color: var(--highlight-color);
         }
 
         /* Mobile Styles */
         @media (max-width: 768px) {
-            header h1 {
-                font-size: 1.8rem;
+            .hero h1 {
+                font-size: 2rem;
             }
 
             nav ul {
@@ -238,14 +353,18 @@
             .map iframe {
                 height: 300px;
             }
+
+            .contact-info .contact-links {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <header>
+    <section class="hero">
         <h1>Davis Mobile RV Repair</h1>
         <a href="tel:+14354631098">Call Now: +1 (435) 463-1098</a>
-    </header>
+    </section>
 
     <nav>
         <ul>
@@ -265,13 +384,15 @@
 
         <section id="hours" class="hours">
             <h2>Business Hours</h2>
-            <p>Monday: 9 AM–9 PM</p>
-            <p>Tuesday: 9 AM–9 PM</p>
-            <p>Wednesday: 9 AM–9 PM</p>
-            <p>Thursday: 9 AM–9 PM</p>
-            <p>Friday: 9 AM–9 PM</p>
-            <p>Saturday: 9 AM–9 PM</p>
-            <p>Sunday: 9 AM–9 PM</p>
+            <div class="hours-list">
+                <div class="hours-item"><span>Monday</span><span>9 AM–9 PM</span></div>
+                <div class="hours-item"><span>Tuesday</span><span>9 AM–9 PM</span></div>
+                <div class="hours-item"><span>Wednesday</span><span>9 AM–9 PM</span></div>
+                <div class="hours-item"><span>Thursday</span><span>9 AM–9 PM</span></div>
+                <div class="hours-item"><span>Friday</span><span>9 AM–9 PM</span></div>
+                <div class="hours-item"><span>Saturday</span><span>9 AM–9 PM</span></div>
+                <div class="hours-item"><span>Sunday</span><span>9 AM–9 PM</span></div>
+            </div>
         </section>
 
         <section id="map" class="map">
@@ -305,10 +426,12 @@
 
         <section class="contact-info">
             <h2>Contact Information</h2>
-            <p><a href="tel:+14354631098">Phone: +1 (435) 463-1098</a></p>
-            <p><a href="mailto:rogerdavis1020@yahoo.com">Email: rogerdavis1020@yahoo.com</a></p>
-            <p><a href="https://www.google.com/maps/place/Davis+Mobile+Rv+Repair/@37.0692353,-113.5511749,17z/data=!3m1!4b1!4m6!3m5!1s0x4fd93b9d2d43111:0x3c490bd3e424414!8m2!3d37.069231!4d-113.5486!16s%2Fg%2F11s3v4tq1n?entry=ttu&g_ep=EgoyMDI1MTAyMi4wIKXMDSoASAFQAw%3D%3D" target="_blank">View on Google Maps</a></p>
-            <p><a href="https://m.facebook.com/davismobilervrepair" target="_blank">Follow us on Facebook</a></p>
+            <div class="contact-links">
+                <a href="tel:+14354631098" class="phone">Phone: +1 (435) 463-1098</a>
+                <a href="mailto:rogerdavis1020@yahoo.com" class="email">Email: rogerdavis1020@yahoo.com</a>
+                <a href="https://www.google.com/maps/place/Davis+Mobile+Rv+Repair/@37.0692353,-113.5511749,17z/data=!3m1!4b1!4m6!3m5!1s0x4fd93b9d2d43111:0x3c490bd3e424414!8m2!3d37.069231!4d-113.5486!16s%2Fg%2F11s3v4tq1n?entry=ttu&g_ep=EgoyMDI1MTAyMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="map">View on Google Maps</a>
+                <a href="https://m.facebook.com/davismobilervrepair" target="_blank" class="facebook">Follow us on Facebook</a>
+            </div>
         </section>
     </div>
 
@@ -358,7 +481,6 @@
             renderReviews();
         });
 
-        // Initial render
         renderReviews();
     </script>
 </body>
